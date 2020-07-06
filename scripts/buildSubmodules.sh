@@ -34,6 +34,7 @@ done
 variablesOS "$1"
 update_submodules
 build_caffe
+build_opencv
 echoRed "SUCCESS"
 
 

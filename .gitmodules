@@ -1,3 +1,6 @@
 [submodule "submodules/caffe/source"]
 	path = submodules/caffe/source
 	url = https://github.com/BVLC/caffe.git
+[submodule "submodules/opencv/source"]
+	path = submodules/opencv/source
+	url = https://github.com/opencv/opencv
