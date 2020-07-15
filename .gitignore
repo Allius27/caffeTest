@@ -1,0 +1,5 @@
+submodules/caffe/source/external/*
+dogs-vs-cats
+*.txt
+*lmdb*
+*.binaryproto

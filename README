@@ -1,0 +1,8 @@
+1. Download dogs vs cats image set
+	https://www.kaggle.com/c/dogs-vs-cats
+
+2. Run create_lmbd.sh
+
+3. compute_image_mean train_lmdb train_mean.binaryproto
+
+4. caffe train --solver=solver.prototxt
