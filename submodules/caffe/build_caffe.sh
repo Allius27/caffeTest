@@ -12,6 +12,7 @@ function build_caffe_build_type() {
 			-DOpenCV_DIR=$INSTALL_DIR/lib/cmake/opencv4 \
 			-DMKLDNN_INSTALL_DIR=$INSTALL_DIR \
 			-DMKLDNN_LIB_DIR=$INSTALL_DIR/lib \
+			-DCMAKE_INSTALL_RPATH="../lib/" \
 			$COMPONENT_SOURCE_DIR
 
 		# fix bug with building one of submodules caffe
@@ -24,8 +25,9 @@ function build_caffe_build_type() {
 	popd
 }
 
-function copyIntelLibs() {
-	cp -rf ./caffe/external/mlsl/l_mlsl_2018.1.005/intel64/lib/* $INSTALL_DIR/lib
+function addSourceTobashrc() {
+	echo "source $COMPONENT_SOURCE_DIR/external/mlsl/l_mlsl_2018.1.005//intel64/bin/mlslvars.sh" >> ~/.bashrc
+	echo "PATH=\$PATH:$INSTALL_DIR/bin" >> ~/.bashrc
 }
 
 function build_caffe() {
@@ -33,6 +35,6 @@ function build_caffe() {
 	COMPONENT_NAME="caffe"
 	componentVariables
 
-	# build_caffe_build_type Release
-	copyIntelLibs
+	build_caffe_build_type Release
+	addSourceTobashrc
 }
