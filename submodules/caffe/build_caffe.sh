@@ -11,14 +11,7 @@ function build_caffe_build_type() {
 			-DBUILD_python=OFF \
 			-DOpenCV_DIR=$INSTALL_DIR/lib/cmake/opencv4 \
 			-DMKLDNN_INSTALL_DIR=$INSTALL_DIR \
-			-DMKLDNN_LIB_DIR=$INSTALL_DIR/lib \
-			-DCMAKE_INSTALL_RPATH="../lib/" \
 			$COMPONENT_SOURCE_DIR
-
-		# fix bug with building one of submodules caffe
-		find . -name \( -name "*.cmake" -o -name "*.make" \) \
-			   -exec sed -e 's!/lib64/libmkldnn.so!/lib/libmkldnn.so/!' \
-			   -i {} \;
 
 		$MAKE "$NPROC"
 		$MAKE install
