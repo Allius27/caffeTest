@@ -23,7 +23,7 @@ function componentVariables () {
 }
 
 function update_submodules () {
-	git submodule update --init --progress
+	git submodule update --init
 }
 
 for item in $(ls "$SUBMODULES"/*/build_*.sh); do 
